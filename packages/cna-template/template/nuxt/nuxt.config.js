@@ -40,6 +40,9 @@
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    <%_ if (plsrSass) _%>
+    '~/assets/scss/main.scss',
+    <%_ } _%>
     <%_ if (ui === 'element-ui') { _%>
     'element-ui/lib/theme-chalk/index.css'
     <%_ } else if (ui === 'iview') { _%>
@@ -56,6 +59,12 @@
     'vuesax/dist/vuesax.css'
     <%_ } _%>
   ],
+  <%_ if (plsrSass) _%>
+  // https://github.com/nuxt-community/style-resources-module
+  styleResources: {
+		scss: ["~assets/style/_variables.scss"]
+	},
+  <%_ } _%>
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
@@ -79,6 +88,10 @@
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    <%_ if (plsrSass) _%>
+    // https://github.com/nuxt-community/style-resources-module
+    '@nuxtjs/style-resources',
+    <%_ } _%>
     <%_ if (typescript) { _%>
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',

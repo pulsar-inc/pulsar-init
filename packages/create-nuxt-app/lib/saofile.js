@@ -19,6 +19,9 @@ module.exports = {
     const commitlint = this.answers.linter.includes('commitlint')
     const axios = this.answers.features.includes('axios')
     const content = this.answers.features.includes('content')
+    const plsrSass = this.answers.features.includes('plsr-sass')
+    const plsrHusky = this.answers.linter.includes('plsr-husky')
+    const plsrVSCode = this.answers.devTools.includes('plsr-vscode')
     const pm = this.answers.pm === 'yarn' ? 'yarn' : 'npm'
     const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm run'
 
@@ -26,6 +29,9 @@ module.exports = {
     const edge = cliOptions.edge ? '-edge' : ''
 
     return {
+      plsrSass,
+      plsrHusky,
+      plsrVSCode,
       typescript,
       pwa,
       eslint,
@@ -82,6 +88,30 @@ module.exports = {
         type: 'add',
         files: '**',
         templateDir: join(frameworksDir, this.answers.ci)
+      })
+    }
+
+    if (this.answers.features && this.answers.features.includes('plsr-sass')) {
+      actions.push({
+        type: 'add',
+        files: '**',
+        templateDir: join(frameworksDir, 'plsr-sass')
+      })
+    }
+
+    if (this.answers.linter && this.answers.linter.includes('plsr-husky')) {
+      actions.push({
+        type: 'add',
+        files: '**',
+        templateDir: join(frameworksDir, 'plsr-husky')
+      })
+    }
+
+    if (this.answers.devTools && this.answers.devTools.includes('plsr-vscode')) {
+      actions.push({
+        type: 'add',
+        files: '**',
+        templateDir: join(frameworksDir, 'plsr-vscode')
       })
     }
 

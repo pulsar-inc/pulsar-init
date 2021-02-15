@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "postinstall": "husky install .linter/husky"
+    },
+    "devDependencies": {
+        "husky": "^5.0.9"
+    }
+}

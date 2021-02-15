@@ -54,6 +54,7 @@ module.exports = [
     pageSize: 10,
     choices: [
       { name: 'Axios - Promise based HTTP client', value: 'axios' },
+      { name: 'Pulsar Sass - Sass integration', value: 'plsr-sass' },
       { name: 'Progressive Web App (PWA)', value: 'pwa' },
       { name: 'Content - Git-based headless CMS', value: 'content' }
     ],
@@ -68,6 +69,7 @@ module.exports = [
       { name: 'ESLint', value: 'eslint' },
       { name: 'Prettier', value: 'prettier' },
       { name: 'Lint staged files', value: 'lintStaged' },
+      { name: 'Pulsar commits', value: 'plsr-husky' },
       { name: 'StyleLint', value: 'stylelint' },
       { name: 'Commitlint', value: 'commitlint' }
     ],
@@ -112,6 +114,7 @@ module.exports = [
     type: 'checkbox',
     choices: [
       { name: 'jsconfig.json (Recommended for VS Code if you\'re not using typescript)', value: 'jsconfig.json' },
+      { name: 'Pulsar VS Code', value: 'plsr-vscode' },
       { name: 'Semantic Pull Requests', value: 'semantic-pull-requests' },
       { name: 'Dependabot (For auto-updating dependencies, GitHub only)', value: 'dependabot' }
     ],

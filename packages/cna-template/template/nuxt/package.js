@@ -17,11 +17,15 @@ module.exports = {
     const stylelint = linter.includes('stylelint')
     const prettier = linter.includes('prettier')
     const commitlint = linter.includes('commitlint')
+    const plsrSass = features.includes('plsr-sass')
     const lintScripts = {
       eslint: '<%= pmRun %> lint:js',
       stylelint: '<%= pmRun %> lint:style'
     }
 
+    if (plsrSass) {
+      pkg.scripts['lint:style'] = pkg.scripts['lint:style'].replace(/{vue,css}/, '{vue,css,scss,sass}')
+    }
     if (!eslint) {
       delete lintScripts.eslint
       delete pkg.scripts['lint:js']
